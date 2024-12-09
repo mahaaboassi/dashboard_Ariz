@@ -25,6 +25,7 @@ const Page_2 = React.forwardRef(({page,isReview},ref) =>{
         }))
     }
     const saveRow = () => {
+       
         const data = currentPage.table
         data.push({
             title: row
@@ -36,6 +37,8 @@ const Page_2 = React.forwardRef(({page,isReview},ref) =>{
 
     }
     const save = ()=>{
+        setOpenAdd(false)
+        
         localStorage.setItem("page_2",JSON.stringify(currentPage))
     }
     return ( <div ref={ref} className={`${isReview && "p-6"} page-2  `} style={{color : colors.light}}>

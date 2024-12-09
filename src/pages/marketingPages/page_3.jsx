@@ -39,6 +39,7 @@ const Page_3 = React.forwardRef(({page,isReview},ref) => {
 
     }
     const save = ()=>{
+        setOpenAdd(false)
         localStorage.setItem("page_3",JSON.stringify(currentPage))
         setIsOpenInput({
             title : false,
