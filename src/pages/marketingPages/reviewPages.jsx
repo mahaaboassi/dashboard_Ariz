@@ -72,13 +72,11 @@ function ReviewPages() {
         if(result){
             setLoading(false)
             alert(result.message)
-            pdf.save('multi-page.pdf');
+            pdf.save('Markerting');
         }else{
             setLoading(false)
             alert(result.message)
-        }
-        
-        
+        }  
     }
     return ( <div>
         <h1 className = "flex justify-center">Review Pages To Download It</h1>
