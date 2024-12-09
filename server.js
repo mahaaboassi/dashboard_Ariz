@@ -13,7 +13,10 @@ app.use(bodyParser.urlencoded({
 }));
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type']
+}));
 // cron
 const cron = require("node-cron");
 const { sendMonthlySummaryEmail } = require("./controllers/email");
