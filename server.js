@@ -36,7 +36,7 @@ cron.schedule("0 0 28-31 * *", async () => {
 connectDB();
 
 // Serve React app from the build folder
-app.use(express.static('build'));
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 // Routes
