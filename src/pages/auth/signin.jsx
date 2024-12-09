@@ -31,7 +31,6 @@ function SignIn() {
                 email : data.email ,
                 password :  data.password ,
             }) ,
-            credentials: "include",
             headers :{
                 "Content-Type" : "application/json"
             },

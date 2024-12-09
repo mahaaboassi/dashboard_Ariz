@@ -13,12 +13,7 @@ app.use(bodyParser.urlencoded({
 }));
 // Middleware
 app.use(bodyParser.json());
-app.use(cors({
-  origin: ['http://localhost:5000', 'https://dashboard-ariz-2.onrender.com/'], // Add your frontend's domain here
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type'], // Allowed headers
-  credentials: true, // Include credentials (cookies, etc.) if needed
-}));
+app.use(cors());
 // cron
 const cron = require("node-cron");
 const { sendMonthlySummaryEmail } = require("./controllers/email");

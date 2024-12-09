@@ -37,7 +37,6 @@ function SignUp() {
             headers :{
                 "Content-Type" : "application/json"
             },
-            credentials: "include",
             method : "POST"
         }).then((res)=> res.json()).then((result)=>{
             console.log(result);
