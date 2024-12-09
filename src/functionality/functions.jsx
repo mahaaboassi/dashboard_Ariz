@@ -7,6 +7,7 @@ export const  SendEmail = async (name,email,namePdf)=>{
             name : name,
             namePdf : namePdf
         }) ,
+        credentials: "include",
         headers :{
             "Content-Type" : "application/json"
         },
