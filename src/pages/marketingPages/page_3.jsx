@@ -51,7 +51,7 @@ const Page_3 = React.forwardRef(({page,isReview},ref) => {
         setCurrentPage(prev=>({...prev,[type]:e.target.value}))
 
     }
-    return ( <div ref={ref} className={`${isReview && "p-6"} page-3`} style={{color : colors.light}}>
+    return ( <div ref={ref} className={`${isReview && "p-6 review"} page-3`} style={{color : colors.light}}>
 
         <div className="flex">
             <div className={`${isReview?"flex w-1/4 items-center":"w-1/4 md:flex hidden items-center"}`}>

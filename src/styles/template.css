@@ -123,6 +123,39 @@
 .active-link  .icon-file{
     color: var( --ebony_purply_blue);
 }
+.icon-for-number{
+    width: 30px;
+    height: 30px;
+    border-radius: 50% ;
+    display: flex;
+    justify-content: center;
+    align-items: start
+}
+.change-number{
+    align-items: start !important;
+}
+/* Pdf Review */
+.review{
+    transform: scale(0.9);
+}
+
+@media (min-width:400px) and (max-width:768px){
+    .review{
+        transform: scale(0.8);
+    }
+}
+@media (max-width:400px){
+    .review{
+        transform: scale(0.7);
+    
+    }
+    .review h1{
+        font-size: var(--font-size-xl)!important;
+    }
+    .review h3{
+        font-size: var(--font-size-l)!important;
+    }
+}
 @media (max-width:768px) {
     .menu-pages{
         position: fixed;

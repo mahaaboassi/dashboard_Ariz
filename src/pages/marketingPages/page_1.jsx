@@ -40,10 +40,10 @@ const  Page_1 = React.forwardRef(({page,isReview = false},ref) => {
             secondPhrass : false
         })
     }
-    return ( <div ref={ref} className={`w-full page-1`}>
+    return ( <div ref={ref} className={`w-full  ${isReview?"review":"p-10"}`}>
         
         <div className="w-full items-center">
-            <div style={{background:colors.main}} className={ `${isReview?"p-20 ":"p-10"} `}>
+            <div style={{background:colors.main}} className={ `p-10 `}>
                 <div>
                     <img className="h-20" alt="logo" src={page.img} />
                 </div>
@@ -51,12 +51,12 @@ const  Page_1 = React.forwardRef(({page,isReview = false},ref) => {
                     <div className="col-span-2 " style={isMobile && !isReview?{borderBottom:`2px solid ${colors.subMain}`}:{borderRight:`2px solid ${colors.subMain}`}}>
                         <div className="py-10">
                             <div className="flex gap-2 items-center">
-                                <h1  className={`${isReview?"text-5xl font-bold":""} uppercase `} style={{color:colors.light}}>{currentPage.title}</h1> 
+                                <h1  className={`${isReview?" font-bold":""} uppercase `} style={{color:colors.light}}>{currentPage.title}</h1> 
                                 {!isOpenInput.title && <MdEdit onClick={()=> setIsOpenInput(prev=>({...prev,title:true}))} className={`${isReview &&"no-print"} cursor-pointer `} style={{fontSize:"25px",color:colors.light}} />}
                             </div>
                             {isOpenInput.title && <input className="w-3/4" value={currentPage.title} onChange={(e)=>handleChange(e,"title")}  placeholder="Title"/>}
                             <div className="flex gap-2 items-center">
-                                <h3 className={`${isReview?"text-4xl font-bold":""} uppercase`} style={{color:colors.subMain}}>{currentPage.subTitle}</h3> 
+                                <h3 className={`${isReview?"font-bold":""} uppercase`} style={{color:colors.subMain}}>{currentPage.subTitle}</h3> 
                                 {!isOpenInput.subTitle && <MdEdit onClick={()=> setIsOpenInput(prev=>({...prev,subTitle:true}))} className={`${isReview &&"no-print"} cursor-pointer `} style={{fontSize:"25px",color:colors.light}} />}
                             </div>
                             {isOpenInput.subTitle && <input  className="w-3/4" value={currentPage.subTitle} onChange={(e)=>handleChange(e,"subTitle")} placeholder="Subtitle"/>}
@@ -76,9 +76,9 @@ const  Page_1 = React.forwardRef(({page,isReview = false},ref) => {
                             {isOpenInput.secondPhrass && <input  className="w-3/4" value={currentPage.secondPhrass} onChange={(e)=>handleChange(e,"secondPhrass")}  placeholder="Second Phrass"/>}
                         </div>
                     </div>
-                    <div className="col-span-1 flex flex-col gap-3 md:p-5">
+                    <div className={`col-span-1 flex flex-col gap-3 md:p-5 ${isReview && "p-5 "}`}>
                         
-                        <div>
+                        <div >
                             <label  style={{color:colors.light}}>File Name : </label>
                             <div className="pt-2">
                                 <p style={{color:colors.light}} className={`${!isReview &&"no-print"} `}>{currentPage.fileName}</p>

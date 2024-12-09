@@ -41,7 +41,7 @@ const Page_2 = React.forwardRef(({page,isReview},ref) =>{
         
         localStorage.setItem("page_2",JSON.stringify(currentPage))
     }
-    return ( <div ref={ref} className={`${isReview && "p-6"} page-2  `} style={{color : colors.light}}>
+    return ( <div ref={ref} className={`${isReview && "p-6 review"} page-2  `} style={{color : colors.light}}>
         <div>
             <h2 className={`${isReview ? "py-4" : ""} uppercase`}  style={{color: colors.dark}} > {currentPage.title} </h2>
             <div style={{borderBottom:`2px solid ${colors.subMain}`}} ></div>
@@ -72,8 +72,7 @@ const Page_2 = React.forwardRef(({page,isReview},ref) =>{
                             <div className="capitalize">
                                 <p>{table.title}</p>
                             </div>
-                            <div className="flex justify-center items-center" style={{width:"30px",height:"30px",
-                            borderRadius:"50%",background:colors.subMain,color:colors.light}}>{index}</div>
+                            <div className="flex justify-center items-center icon-for-number" style={{background:colors.subMain,color:colors.light}}>{index}</div>
                         </div>
                     </li>))}
                     

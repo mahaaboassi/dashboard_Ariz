@@ -35,34 +35,38 @@ function ReviewPages() {
     },[])
     const downloadPDF = async () => {
         setLoading(true)
-        const pdf = new jsPDF({
-            orientation: 'l', // Landscape orientation
-            unit: 'mm',
-            format: 'a4', // A4 size
-        });
         
-        const pageWidth = pdf.internal.pageSize.getWidth();  // 297mm for A4 landscape
-        const pageHeight = pdf.internal.pageSize.getHeight(); // 210mm for A4 landscape
-        
+  
+        const pdf = new jsPDF('l',  'mm','a4',true);
+    
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+    
         for (let i = 0; i < pageRefs.length; i++) {
-            const canvas = await html2canvas(pageRefs[i].current, {
+            const element = pageRefs[i].current;
+    
+            // Add PDF-specific styles
+            element.classList.remove('review');
+            element.classList.add('change-number');
+            // Render to canvas
+            const canvas = await html2canvas(element, {
                 scale: 3, // High resolution
+                useCORS: true, // Ensures external assets are rendered
+                windowWidth: 1280,
             });
-        
-            // Convert the canvas to an image
+    
+            // Convert canvas to image
             const imgData = canvas.toDataURL('image/png', 1.0);
-        
-            // Calculate the image dimensions to fully fit the PDF page
-            const imgWidth = pageWidth; // Full PDF page width
-            const imgHeight = pageHeight; // Full PDF page height
-        
-            // Add the image to the PDF
-            if (i > 0) pdf.addPage(); // Add a new page after the first
-            pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight, '', 'FAST');
+    
+            // Add image to the PDF
+            if (i > 0) pdf.addPage();
+            pdf.addImage(imgData, 'PNG', 0, 0, pageWidth, pageHeight, '', 'FAST');
+    
+            // Remove PDF-specific styles
+            element.classList.add('review');
+            element.classList.remove('change-number');
+    
         }
-        
-        // Save the PDF
-
         sendEmailFun("Markerting",pdf)
         
     };
@@ -71,7 +75,7 @@ function ReviewPages() {
         const {result} = await SendEmail(data.name , data.email,namePdf)
         if(result){
             setLoading(false)
-            alert(result.message)
+            alert("Saved Successfully")
             pdf.save('Markerting');
         }else{
             setLoading(false)
@@ -79,7 +83,7 @@ function ReviewPages() {
         }  
     }
     return ( <div>
-        <h1 className = "flex justify-center">Review Pages To Download It</h1>
+        <h1 className = "flex justify-center text-center">Review Pages To Download It</h1>
         { Object.keys(info_1).length > 0  && <Page_1 isReview={true} ref={pageRefs[0]}  page={info_1} /> }
         { Object.keys(info_2).length >0 && <Page_2 isReview={true} ref={pageRefs[1]}  page={info_2} />}
         { Object.keys(info_3).length>0 && <Page_3 isReview={true} ref={pageRefs[2]}   page={info_3} />}
