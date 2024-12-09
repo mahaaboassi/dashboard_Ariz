@@ -28,7 +28,7 @@ function SignUp() {
     const [loading ,setLoading ] = useState(false)
     const onSubmit = (data)=>{
         setLoading(true)
-        fetch(`${Host}auth/signup`,{
+        fetch(`${Host}auth/signupn`,{
             body : JSON.stringify({
                 email : data.email ,
                 name : data.name,
@@ -48,6 +48,9 @@ function SignUp() {
             }
             setLoading(false)
             
+        }).catch((error)=>{
+            alert(error)
+            setLoading(false)
         })
        
         

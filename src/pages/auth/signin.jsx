@@ -24,7 +24,6 @@ function SignIn() {
 
     const [loading ,setLoading ] = useState(false)
     const onSubmit = (data)=>{
-        console.log(data);
         setLoading(true)
         fetch(`${Host}auth/signin`,{
             body : JSON.stringify({
@@ -45,6 +44,9 @@ function SignIn() {
             }
             setLoading(false)
             
+        }).catch((error)=>{
+            alert(error)
+            setLoading(false)
         })
        
         

@@ -16,5 +16,5 @@ export const  SendEmail = async (name,email,namePdf)=>{
         return {
             result : data
         }
-
+    
 }
