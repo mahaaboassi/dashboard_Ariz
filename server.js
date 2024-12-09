@@ -43,6 +43,11 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use("/api/auth", router);
 app.use("/api/pdf", routerPdf)
 
+// Catch-all route to send index.html for any route that doesn't match API
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 // Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

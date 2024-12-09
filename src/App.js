@@ -15,7 +15,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        
         <Route path="/*"  element={<LayoutAuth/>} >
           <Route path="" element={<SignIn/>} />
           <Route path="signup" element={<SignUp/>} />
