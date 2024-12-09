@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("./styles/variable.css");
 @import url("./styles/signIn.css");
 @import url("./styles/layout.css");
@@ -10,7 +11,8 @@
 
   body{
     background-color: var(--light_level_2_color );
-    font-family: "Arima", system-ui;
+    /* font-family: "Arima", system-ui; */
+    font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     color: var(--dark_purply_blue );
     font-weight: 500;
