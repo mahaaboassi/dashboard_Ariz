@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 // Middleware
 app.use(bodyParser.json());
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://dashboard-ariz-2.onrender.com/'], // Add your frontend's domain here
+  origin: ['http://localhost:5000', 'https://dashboard-ariz-2.onrender.com/'], // Add your frontend's domain here
   credentials: true, // Include credentials (cookies, etc.) if needed
 }));
 // cron
