@@ -1,0 +1,24 @@
+.signIn{
+  
+}
+.intro{
+    background-color: var(--ebony_purply_blue);
+    color: var(--light_color);
+    
+}
+.intro img{
+    transform: rotate(0deg);
+    animation: rotateLogo  infinite 5s linear ;
+}
+.form-intro form{
+    background-color: var(--light_level_2_color );
+    box-shadow: var(--shadow-box);
+}
+@keyframes rotateLogo {
+    from{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(360deg);  
+    }
+    
+}
